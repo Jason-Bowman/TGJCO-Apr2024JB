@@ -11,17 +11,38 @@ public class DiceExpression {
     public void evaluate() {
     }
 
-    public Input parseInput(String input) {
-        Pattern pattern = Pattern.compile("^\\d.\\d\\+?");
+
+
+    public static Input parseInput(String input) {
+    String regexForOneTypeOfDie = "^((\\d*)d(\\d*))(\\s?)(([+\\-*])?(\\s(\\d+)))?";
+
+       // String input= "2d6+3";
+        String no_ofDice="_";
+        String diceTypes="_";
+        String operator="_";
+        String mathsNumber = "_";
+        Pattern pattern = Pattern.compile(regexForOneTypeOfDie);
         Matcher matcher = pattern.matcher(input);
         boolean matchFound = matcher.find();
         if(matcher.matches())
         {
-            Input operator=matcher
+            no_ofDice=matcher.group(2);
+            diceTypes=matcher.group(3);
+            operator=matcher.group(6);
+            mathsNumber = matcher.group(8);
+
         }
-        System.out.println("Valid input " + matchFound);
+        
         matcher.group(0);
 
-        return new Input(diceTypes, operator, number);
+        int[] allDice = new int[Integer.parseInt(no_ofDice)];
+
+        for (int i = 0; i < Integer.parseInt(no_ofDice); i++) {
+            allDice[i]=Integer.parseInt(diceTypes);
+        }
+
+        DiceRoll.Operator translatedOperator = DiceRoll.Operator.fromString(operator);
+
+        return new Input(allDice, translatedOperator, Integer.parseInt(mathsNumber));
     }
 }

@@ -5,20 +5,12 @@ public class DiceRoller {
 //        DiceExpression expression = new DiceExpression(userInput);
 //        expression.evaluate();
 
-        String input = "2d10 + 3d8 - 5";
+        String input = "2d10 - 5";
 
-        boolean isValidInput = DiceExpression.parseInput(input);
-
-        if (!isValidInput) {
-            System.out.println("Invalid input"); // TODO make a more descriptive error
-            return;
-        }
-
-        Input parsedInput = new Input(new int[]{10, 10, 8, 8, 8}, DiceRoll.Operator.SUBTRACT, 5);
+        Input parsedInput = DiceExpression.parseInput(input);
         int[] diceTypes = parsedInput.diceTypes;
         DiceRoll.Operator operator = parsedInput.operator;
         int number = parsedInput.number;
-
 
 
         int[] diceResults = DiceRoll.rollAllDice(diceTypes);

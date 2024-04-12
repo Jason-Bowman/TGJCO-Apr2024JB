@@ -9,35 +9,35 @@ Requirements:
 Accept input in the format of "NdM" where N is the number of dice and M is the type of dice.
 Support dice types: d2, d3, d4, d6, d8, d10, d12, d20, and d100.
 Handle basic arithmetic operations: addition (+), subtraction (-), and multiplication (*) between dice rolls and constants.
-Output should list every dice roll and the result of the expression.
+Input should list every dice roll and the result of the expression.
 Examples:
 
 Input: 2d6
-Output:
+Input:
 Rolls: 4, 6
 Result: 10
 
 
 Input: d20 + 5
-Output:
+Input:
 Rolls: 12
 Result: 17
 
 
 Input: 3d4 * 1.5
-Output:
+Input:
 Rolls: 1, 3, 4
 Result: 12
 
 
 Input: 2d10 + 3d8 - 5
-Output:
+Input:
 Rolls: 7, 10, 2, 6, 1
 Result: 21
 
 
 Input: 2d13
-Output: ERROR MESSAGE
+Input: ERROR MESSAGE
 
 
 ## Optional features;

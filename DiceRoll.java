@@ -28,9 +28,28 @@ public class DiceRoll {
     }
 
     public static enum Operator {
-        ADD,
-        SUBTRACT,
-        MULTIPLY
+        ADD("+"),
+        SUBTRACT("-"),
+        MULTIPLY("*");
+
+        private final String string;
+
+        Operator(String string) {
+            this.string = string;
+        }
+        public String getString(){
+            return string;
+        }
+
+        public static Operator fromString(String text) {
+            for (Operator op : Operator.values()) {
+                if (op.string.equals(text)) {
+                    return op;
+                }
+            }
+            throw new IllegalArgumentException("No constant with string " + text + " found");
+        }
+
     }
 
     public static int getFinalResult(int[] diceResults, Operator operator, int number) {
