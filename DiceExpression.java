@@ -1,3 +1,6 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class DiceExpression {
     private String expression;
 
@@ -6,5 +9,13 @@ public class DiceExpression {
     }
 
     public void evaluate() {
+    }
+
+    public static void parseInput(String input) {
+        Pattern pattern = Pattern.compile("^\\d.\\d\\+?");
+        Matcher matcher = pattern.matcher(input);
+        boolean matchFound = matcher.find();
+        System.out.println("Valid input " + matchFound);
+        matcher.group(0);
     }
 }
