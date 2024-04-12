@@ -11,7 +11,14 @@ public class DiceExpression {
     public void evaluate() {
     }
 
-    public static void parseInput(String input) {
+    // Suggested output from parseInput
+//    {
+//        sides: [1,4,6,7],
+//        operator: MINUS,
+//        number: 5
+//    }
+
+    public int[] parseInput(String input) {
         Pattern pattern = Pattern.compile("^\\d.\\d\\+?");
         Matcher matcher = pattern.matcher(input);
         boolean matchFound = matcher.find();

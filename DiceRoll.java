@@ -33,7 +33,7 @@ public class DiceRoll {
         MULTIPLY
     }
 
-    public static int executeMaths(int[] diceResults, Operator operator, int number) {
+    public static int getFinalResult(int[] diceResults, Operator operator, int number) {
         int totalOfDice = Arrays.stream(diceResults).sum();
         switch (operator) {
             case ADD -> {
@@ -59,7 +59,7 @@ public class DiceRoll {
                 response.append(", ");
             }
         }
-        response.append("Final score: ");
+        response.append(" Final score: ");
         response.append(finalResult);
         return response.toString();
     }
