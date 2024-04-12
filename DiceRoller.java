@@ -6,11 +6,19 @@ public class DiceRoller {
 //        expression.evaluate();
 
         String input = "2d10 + 3d8 - 5";
-        int[] diceTypes = new int[]{10, 10, 8, 8, 8};
-        DiceRoll.Operator operator = DiceRoll.Operator.SUBTRACT;
-        int number = 5;
 
         boolean isValidInput = DiceExpression.parseInput(input);
+
+        if (!isValidInput) {
+            System.out.println("Invalid input"); // TODO make a more descriptive error
+            return;
+        }
+
+        Input parsedInput = new Input(new int[]{10, 10, 8, 8, 8}, DiceRoll.Operator.SUBTRACT, 5);
+        int[] diceTypes = parsedInput.diceTypes;
+        DiceRoll.Operator operator = parsedInput.operator;
+        int number = parsedInput.number;
+
 
 
         int[] diceResults = DiceRoll.rollAllDice(diceTypes);

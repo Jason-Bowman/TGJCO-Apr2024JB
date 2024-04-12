@@ -11,18 +11,17 @@ public class DiceExpression {
     public void evaluate() {
     }
 
-    // Suggested output from parseInput
-//    {
-//        sides: [1,4,6,7],
-//        operator: MINUS,
-//        number: 5
-//    }
-
-    public int[] parseInput(String input) {
+    public Input parseInput(String input) {
         Pattern pattern = Pattern.compile("^\\d.\\d\\+?");
         Matcher matcher = pattern.matcher(input);
         boolean matchFound = matcher.find();
+        if(matcher.matches())
+        {
+            Input operator=matcher
+        }
         System.out.println("Valid input " + matchFound);
         matcher.group(0);
+
+        return new Input(diceTypes, operator, number);
     }
 }
